@@ -2,6 +2,8 @@
 
 ## &#x1F305; Gallery
 ### Audio Driven (Sing)
+<video controls loop src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4" muted="false"></video>
+<video src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4"></video>
 
 <table class="center">
     
