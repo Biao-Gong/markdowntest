@@ -5,6 +5,12 @@
 <video controls loop src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4" muted="false"></video>
 <video src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4"></video>
 
+
+<video width="640" height="360" controls>
+  <source src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+
 <table class="center">
     
 <tr>
