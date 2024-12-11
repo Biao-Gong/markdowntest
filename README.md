@@ -41,8 +41,8 @@ This repository is the official implementation of paper "Animate-X: Universal Ch
 
 
 ## &#x1F4CC; Updates
-* [2024.12.10] 🔥 We release our [Animate-X](https://github.com/antgroup/animate-x) codes and models.
-* [2024.10.14] 🔥 Our [paper](https://arxiv.org/abs/2410.10306) is in public on arxiv.
+* [2024.12.10] �� We release our [Animate-X](https://github.com/antgroup/animate-x) codes and models.
+* [2024.10.14] �� Our [paper](https://arxiv.org/abs/2410.10306) is in public on arxiv.
 
 
 
@@ -85,32 +85,64 @@ conda activate animate-x
 
 
 ## &#x1F680; Download Checkpoints
-Download Animate-X [checkpoints](https://xxxx) and put all files in `model` dir, which should be like:
+Download Animate-X [checkpoints](https://huggingface.co/Shuaishuai0219/Animate-X) and put all files in `checkpoints` dir, which should be like:
 ```
-models/
-  xxxx.pth
-  xxxxx.pth
-  xxxx.pth
+./checkpoints/
+|---- animate-x.pth 
+|---- dw-ll_ucoco_384.onnx
+|---- open_clip_pytorch_model.bin
+|---- v2-1_512-ema-pruned.ckpt
+└---- yolox_l.onnx
 ```
 
 ## &#x1F4A1; Inference 
 
-We offer two inference modes. (1) The **easy mode** requires an input of a driven image and a dance video. (2) The **advanced mode** allows for more precise pose customization and alignment. In this mode, users can upload a sequence of customized pose skeleton images to the model. In other words, in this mode, the model accepts three types of inputs: images, videos, and pose skeleton sequences, and produces a video as the output.
+The default inputs are a image (.jpg) and a dance video (.mp4). The default output is a 32-frame video (.mp4) with 768x512 resolution, which will be saved in `./results` dir.
 
-### Tutorial for easy mode
-```bash
-python xxxxx.py
-```
+1. pre-process the video.
+    ```bash
+    python process_data.py \
+        --source_video_paths data/videos \
+        --saved_pose_dir data/saved_pkl \
+        --saved_pose data/saved_pose \
+        --saved_frame_dir data/saved_frames
+    ```
+2. run Animate-X.
+    ```bash
+    python inference.py --cfg configs/Animate_X_infer.yaml 
+    ```
 
-### Tutorial for advanced mode *(with customized pose skeletons)*
-```bash
-python xxxxx.py
-```
+
+Some key parameters in the `.yaml` configuration file are described as follows. For example, users can adjust the sampling interval of the reference video to generate videos of varying durations or speeds.
+- `max_frames`: Number of frames in the generated video (fps: 8).
+- `round`: The number of times each test case is generated.
+- `test_list_path`: The input paths for all test cases, for example:
+    ```python
+        [
+            [2, "data/images/1.jpg", "data/saved_pose/dance_1","data/saved_frames/dance_1","data/saved_pkl/dance_1.pkl", 14],
+            [2, "data/images/4.png", "data/saved_pose/dance_1","data/saved_frames/dance_1","data/saved_pkl/dance_1.pkl", 14],
+            ......
+        ]
+    ```
+    - `2` indicates that 1 frame is sampled from every 2 frames of the reference dance video to be used as input for the model.
+    - `"data/images/1.jpg"` indicates the path to the reference image.
+    - `"data/saved_pose/dance_1"` indicates the path to the saved pose images. (output by `process_data.py`, $I^p$, keypoints visualization)
+    - `"data/saved_frames/dance_1"` indicates the path to the saved frames from the driven video. (output by `process_data.py`)
+    - `"data/saved_pkl/dance_1.pkl"` indicates the path to the saved pose keypoints. (output by `process_data.py`, $p^d$, DWPose)
+    - `14` indicates the random seed.
+- `log_dir`: path to the generated animation videos, e.g., `./results`.
+
+
+**&#10004; Some tips**:
+
+> Although Animate-x does not rely on strict pose alignment and we did not perform any manual alignment operations for all the results in the paper, we cannot guarantee that all cases are perfect. Therefore, users can perform handmade pose alignment operations themselves, e.g, applying the overall x/y translation and scaling on the pose skeleton of each frame to align with the position of the subject in the reference image. (put in `data/saved_pose`) 
+
 
 ## &#x1F4E7; Acknowledgement
-This repository is based on the following codebases:
-* https://github.com/xxxxx
-* https://github.com/xxxxx
+Our implementation is based on [UniAnimate](https://github.com/ali-vilab/UniAnimate), [MimicMotion](https://github.com/Tencent/MimicMotion), and [MusePose](https://github.com/TMElyralab/MusePose). Thanks for their remarkable contribution and released code! If we missed any open-source projects or related articles, we would like to complement the acknowledgement of this specific work immediately.
+
+## &#x2696; License
+This repository is released under the Apache-2.0 license as found in the [LICENSE](LICENSE) file.
 
 ## &#x1F4DA; Citation
 If you find this codebase useful for your research, please use the following entry.
@@ -119,6 +151,13 @@ If you find this codebase useful for your research, please use the following ent
   title={Animate-X: Universal Character Image Animation with Enhanced Motion Representation},
   author={Tan, Shuai and Gong, Biao and Wang, Xiang and Zhang, Shiwei and Zheng, Dandan and Zheng, Ruobing and Zheng, Kecheng and Chen, Jingdong and Yang, Ming},
   journal={arXiv preprint arXiv:2410.10306},
+  year={2025}
+}
+
+@article{Mimir2025,
+  title={Mimir: Improving Video Diffusion Models for Precise Text Understanding},
+  author={Tan, Shuai and Gong, Biao and Feng, Yutong and Zheng, Kecheng and Zheng, Dandan and Shi, Shuwei and Shen, Yujun and Chen, Jingdong and Yang, Ming},
+  journal={arXiv preprint arXiv:2412.03085},
   year={2025}
 }
 ```
