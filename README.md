@@ -41,8 +41,8 @@ This repository is the official implementation of paper "Animate-X: Universal Ch
 
 
 ## &#x1F4CC; Updates
-* [2024.12.10] �� We release our [Animate-X](https://github.com/antgroup/animate-x) codes and models.
-* [2024.10.14] �� Our [paper](https://arxiv.org/abs/2410.10306) is in public on arxiv.
+* [2024.12.10] 🔥 We release our [Animate-X](https://github.com/antgroup/animate-x) codes and models.
+* [2024.10.14] 🔥 Our [paper](https://arxiv.org/abs/2410.10306) is in public on arxiv.
 
 
 
