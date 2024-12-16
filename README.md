@@ -24,6 +24,8 @@
     <br>
         <a href="https://arxiv.org/abs/2410.10306"><img src='https://img.shields.io/badge/arXiv-Animate--X-red' alt='Paper PDF'></a>
         <a href='https://lucaria-academy.github.io/Animate-X/'><img src='https://img.shields.io/badge/Project_Page-Animate--X-blue' alt='Project Page'></a>
+        <a href='https://mp.weixin.qq.com/s/vDR4kPLqnCUwfPiBNKKV9A'><img src='https://badges.aleen42.com/src/wechat.svg'></a>
+        <a href='https://huggingface.co/Shuaishuai0219/Animate-X'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Model-yellow'></a>
     <br>
     <b></a>Ant Group &nbsp; | &nbsp; </a>Tongyi Lab  </b>
     <br>
@@ -41,12 +43,10 @@ This repository is the official implementation of paper "Animate-X: Universal Ch
 
 
 ## &#x1F4CC; Updates
-* [2024.12.10] 🔥 We release our [Animate-X](https://github.com/antgroup/animate-x) codes and models.
+* [2024.12.20] 🔥 We release our [Animate-X](https://github.com/antgroup/animate-x) inference codes.
+* [2024.12.10] 🔥 We release our [Animate-X CKPT](https://huggingface.co/Shuaishuai0219/Animate-X) checkpoints.
 * [2024.10.14] 🔥 Our [paper](https://arxiv.org/abs/2410.10306) is in public on arxiv.
 
-
-
-<!-- <video controls loop src="https://cloud.video.taobao.com/vod/vs4L24EAm6IQ5zM3SbN5AyHCSqZIXwmuobrzqNztMRM.mp4" muted="false"></video> -->
 
 ## &#x1F304; Gallery
 ### Introduction 
