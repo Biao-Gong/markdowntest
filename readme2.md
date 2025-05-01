@@ -50,6 +50,44 @@ Ming-unify's unified architecture overcomes fundamental limitations of conventio
 
 <img width="1034" alt="B106FE9E-5839-48c3-A175-AE8A4D2D8BB8" src="https://github.com/user-attachments/assets/927e090e-7cda-4f32-81de-774466973077" />
 
+## Benchmark Evaluations
+We conduct separate quantitative evaluations of Ming-unify on multimodal understanding and text-to-image generation using public benchmarks. For multimodal understanding, we compare against traditional models that take images and text as input and output text, as well as against recent models with visual generative capabilities. For multimodal generation, we evaluate text-to-image performance on GenEval. Please refer to our TechReport for details.
+
+### Multimodal Understanding
+
+| Type              | Model                             | Avg.  | MMB  | MMS  | MMMU | MathV | Hall | AI2D | MM-Vet |
+|-------------------|-----------------------------------|-------|------|------|------|-------|------|------|--------|
+| **Und. Only**     | LLaVA-72B                        | 68.0  | 84.5 | 65.8 | 56.6 | 68.4  | 47.9 | 86.2 | 60.6   |
+|                   | Qwen2.5-VL-7B                    | 76.2  | 87.8 | 71.1 | 67.9 | 70.8  | 58.8 | 88.2 | 76.7   |
+|                   | Emu3-Chat                        | -     | 58.5 | -    | 31.6 | -     | -    | -    | 37.2   |
+|                   | InternVL2.5-78B                  | 75.2  | 87.5 | 69.5 | 70   | 71.4  | 57.4 | 89.1 | 71.8   |
+|                   | DeepSeek-VL2                     | 66.4  | 81.2 | 61.0 | 50.7 | 59.4  | 51.5 | 84.5 | 60.0   |
+|                   | GPT-4o-20241120 (closed)         | 72.0  | 84.3 | 65.1 | 70.7 | 59.9  | 56.2 | 84.9 | 74.5   |
+|                   | Step-1o (closed)                 | 77.7  | 87.3 | 69.3 | 69.9 | 74.7  | 55.8 | 89.1 | 82.8   |
+| **Und. and Gen.** | DreamLLM                         | -     | -    | -    | -    | -     | -    | -    | 36.6   |
+|                   | MetaMorph                        | -     | 75.2 | -    | -    | -     | -    | -    | -      |
+|                   | Show-o-512                       | -     | -    | -    | 26.7 | -     | -    | -    | -      |
+|                   | TokenFlow-XL                     | -     | 68.9 | -    | 38.7 | -     | -    | -    | 40.7   |
+|                   | Janus-Pro-7B                     | -     | 79.2 | -    | 41.0 | -     | -    | -    | 50.0   |
+|                   | **Ours (Ming-unify)**            | 69.7  | 80.7 | 60.5 | 51.2 | 68.3  | 51.8 | 84.5 | 72.3   |
+
+
+### Image Generation
+
+| Type              | Method                            | Single Obj. | Two Obj. | Counting | Colors | Position | Color Attri. | Overall |
+|-------------------|-----------------------------------|-------------|----------|----------|--------|----------|--------------|---------|
+| **Gen. Only**     | LlamaGen                          | 0.71        | 0.34     | 0.21     | 0.58   | 0.07     | 0.04         | 0.32    |
+|                   | SDv2.1                            | 0.98        | 0.51     | 0.44     | 0.85   | 0.07     | 0.17         | 0.50    |
+|                   | Emu3-Gen                          | 0.98        | 0.71     | 0.34     | 0.81   | 0.17     | 0.21         | 0.54    |
+|                   | SDXL                              | 0.98        | 0.74     | 0.39     | 0.85   | 0.15     | 0.23         | 0.55    |
+|                   | DALL-E 3                          | 0.96        | 0.87     | 0.47     | 0.83   | 0.43     | 0.45         | 0.67    |
+|                   | SD3-Medium                        | 0.99        | 0.94     | 0.72     | 0.89   | 0.33     | 0.60         | 0.74    |
+| **Und. and Gen.** | Chameleon                         | -           | -        | -        | -      | -        | -            | 0.39    |
+|                   | Show-o                            | 0.95        | 0.52     | 0.49     | 0.82   | 0.11     | 0.28         | 0.53    |
+|                   | TokenFlow-XL                      | 0.95        | 0.60     | 0.41     | 0.81   | 0.16     | 0.24         | 0.55    |
+|                   | Janus-Pro-1B                      | 0.98        | 0.82     | 0.51     | 0.89   | 0.65     | 0.56         | 0.73    |
+|                   | MetaQueries                       | -           | -        | -        | -      | -        | -            | 0.61    |
+|                   | **Ours (Ming-unify)**             | 0.99        | 0.76     | 0.53     | 0.87   | 0.26     | 0.30         | 0.62    |
 
 ## Example Usage
 #### System Requirements
