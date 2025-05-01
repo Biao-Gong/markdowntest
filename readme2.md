@@ -53,7 +53,7 @@ Ming-unify's unified architecture overcomes fundamental limitations of conventio
 ## Benchmark Evaluations
 We conduct separate quantitative evaluations of Ming-unify on multimodal understanding and text-to-image generation using public benchmarks. For multimodal understanding, we compare against traditional models that take images and text as input and output text, as well as against recent models with visual generative capabilities. For multimodal generation, we evaluate text-to-image performance on GenEval. Please refer to our TechReport for details.
 
-### Multimodal Understanding
+**Multimodal Understanding**
 
 | Type              | Model                             | Avg.  | MMB  | MMS  | MMMU | MathV | Hall | AI2D | MM-Vet |
 |-------------------|-----------------------------------|-------|------|------|------|-------|------|------|--------|
@@ -72,7 +72,7 @@ We conduct separate quantitative evaluations of Ming-unify on multimodal underst
 |                   | **Ours (Ming-unify)**            | 69.7  | 80.7 | 60.5 | 51.2 | 68.3  | 51.8 | 84.5 | 72.3   |
 
 
-### Image Generation
+**Image Generation**
 
 | Type              | Method                            | Single Obj. | Two Obj. | Counting | Colors | Position | Color Attri. | Overall |
 |-------------------|-----------------------------------|-------------|----------|----------|--------|----------|--------------|---------|
