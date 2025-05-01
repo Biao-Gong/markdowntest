@@ -4,13 +4,15 @@
           🤗 <a href="https://github.com/inclusionAI/Ming/Ming-unify">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://github.com/inclusionAI/Ming/Ming-unify">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://github.com/inclusionAI/Ming/Ming-unify">Paper</a>&nbsp&nbsp 
 </p>
 
-Core technical breakthroughs of this open-source project:
 
-- **Unified Visual Understanding & Generation Architecture.** We introduce a shared representation space for vision-language tasks, replacing traditional CLIP+Diffusion pipelines. The architecture leverages **learnable multiscale-queries** that dynamically integrate multimodal signals, enabling seamless end-to-end sequence prediction for text→image→editing workflows. This approach effectively addresses the quality limitations of discrete token-based methods. Our Ming-unify achieves the unification of generation and understanding, with an average understanding score of 69.7 on the OpenCompass leaderboard, surpassing DeepSeek-VL2 (66.4). At the same time, it maintains strong generation capabilities, achieving a generation score of 61.9 on the GenEval benchmark, outperforming SDXL (0.55).
-- **Multi-Scale Learnable Query Token.** 	We employs a novel mechanism to establish feature correlations across resolutions of 4×/8×/16×. By introducing **hierarchical tokens**, the model resolves cross-scale inconsistencies in super-resolution and editing tasks. 
-- **Cross-Scale Consistency Loss.** A **cross-scale consistency loss** is applied, leveraging explicit gradient constraints to enhance high-resolution reconstruction quality by more than 2dB PSNR (validated at native resolution).
-- **Connector Module.** We facilitates dynamic alignment of features between frozen MLLM and trainable Diffusion models, achieves semantic alignment for text-to-pixel generation while also ensuring local-global coherence in edits.
-- **AGI-Capable System.** Our model supports complex chained operations, such as "generate castle → add sunset → adjust perspective," with a swift response time of under 1 second (benchmarked with RTX 4090). The system is designed to handle instruction-driven generation-editing and is synchronized with ChatGPT-4o(aligned with the industry milestone of March 2025).
+Ming-unify is an open-source multimodal framework featuring a newly designed unified visual generator and a native multimodal autoregressive model tailored for unifying vision and language. Specifically, this project provides an open-source implementation of the integrated MetaQueries and M2-omni framework, while introducing the novel **multi-scale learnable tokens** and **multi-scale representation alignment strategy**. By leveraging a fixed MLLM and a learnable diffusion model, Ming-unify enables native multimodal AR models to perform both text-to-image generation and instruction based image editing tasks, expanding their capabilities beyond pure visual understanding. Our experimental results showcase the strong performance of Ming-unify and illustrate the impressive fluid nature of its interactive process. Ming-unify is in alpha stage and will soon be further refined.
+
+Thank you all for your continued interest and support! We truly appreciate your patience as we steadily advance our solutions and model performance. We're already making great progress and seeing promising results, and exciting updates will be coming soon—so stay tuned!
+
+## &#x1F4CC; Updates
+* [2025.05.03] 🔥 Our [Technical Report](https://arxiv.org/abs/xxxx.xxxx) is in public on arxiv.
+* [2025.05.03] 🔥 We release the fisrt version of [Ming-unify](https://github.com/inclusionAI/Ming/Ming-unify).
+
 
 
 
@@ -26,13 +28,16 @@ Ming-unify's unified architecture overcomes fundamental limitations of conventio
 | **Separate Editing Workflows**<br>(Manual alignment required) | **Dialog-Driven Control**<br>Natural language guided pixel-level editing |
 | **Understanding Bottlenecks**<br>(Visual-semantic mismatch) | **Joint Representation Learning**<br>Mutually enhanced comprehension and generation |
 
-## Open Collaboration
-We're open-sourcing Ming-unify to accelerate progress toward AGI, featuring:
-- 📂 Full model weights & test code  
-- 🧩 Modular architecture for easy extension  
-- 📊 Comprehensive benchmarks (vs GPT-4V, SDXL, etc.)
 
-*"The simultaneous release of ChatGPT-4's image generation in March 2025 confirms our vision of unified multimodal AI as the next paradigm."*  
+## Key Enhancements
+
+- **Unified Visual Understanding & Generation Architecture.** Ming-unify achieves an average understanding score of 69.7 on the OpenCompass leaderboard, surpassing DeepSeek-VL2 (66.4). At the same time, it achieves an image generation score of 0.62 on the GenEval benchmark, outperforming SDXL (0.55).
+- **Multi-Scale Learnable Tokens.** We employ a novel mechanism to establish feature correlations across resolutions of 4×/8×/16×. By introducing **hierarchical tokens**, the model captures global layout (low-res), object structures (mid-res), and fine textures (high-res), improving GenEval by 3.5%. 
+- **Multi-Scale Representation Alignment.** We introduce a novel **scale wised consistency loss** to enforce alignment between hierarchical representations and final outputs through native-resolution optimization. This strategy directly enhances the high-res reconstruction quality (>2dB PSNR) and boosts GenEval by 1.5%.
+- **Connector Module.** We facilitates dynamic alignment of features between frozen MLLM and trainable Diffusion models, achieves semantic alignment for text-to-pixel generation while also ensuring local-global coherence in edits.
+- **AGI-Capable System.** Our model supports complex chained operations, such as "generate castle → add sunset → adjust perspective", with a swift response time of under 1 second (benchmarked with RTX 4090). The system is designed to handle instruction-driven generation-editing and is synchronized with ChatGPT-4o(aligned with the industry milestone of March 2025).
+
+
 
 ## Empowering Multimodal Interaction with Ming-unify
 **Ming-unify** acts as a unified model for multimodal understanding, extending beyond traditional NLP tasks and multimodal comprehension to enable interactive multimodal generation. This includes capabilities such as image generation, image editing, and style transfer.
@@ -104,6 +109,14 @@ For more advanced usage, such as fine-tuning or generating images, refer to the 
 ## Acknowledgments
 
 The project is currently in its early stages. While some preliminary results have been promising, substantial progress is needed to achieve seamless integration of understanding and generation. Both the code and models require further refinement and optimization, which is why we have chosen to open-source the project. We invite contributions from the community to help enhance and develop it collaboratively. If you have any suggestions or identify issues within the code, please contribute via Pull Requests. Thank you for your support and interest!
+
+## Open Collaboration
+We're open-sourcing Ming-unify to accelerate progress toward AGI, featuring:
+- 📂 Full model weights & test code  
+- 🧩 Modular architecture for easy extension  
+- 📊 Comprehensive benchmarks (vs GPT-4V, SDXL, etc.)
+
+*"The simultaneous release of ChatGPT-4's image generation in March 2025 confirms our vision of unified multimodal AI as the next paradigm."*  
 
 ## Contact Information
 
