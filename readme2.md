@@ -1,26 +1,26 @@
-<h1 align="center">Ming-unify: Advancements in Unified Architecture for Natural Multimodal Interaction</h1>
+<h1 align="center">Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction</h1>
 
 <p align="center">
-          🤗 <a href="https://github.com/inclusionAI/Ming/Ming-unify">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://github.com/inclusionAI/Ming/Ming-unify">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://github.com/inclusionAI/Ming/Ming-unify">Paper</a>&nbsp&nbsp 
+          🤗 <a href="https://github.com/inclusionAI/Ming/Ming-Lite-Uni">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://github.com/inclusionAI/Ming/Ming-Lite-Uni">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://github.com/inclusionAI/Ming/Ming-Lite-Uni">Paper</a>&nbsp&nbsp 
 </p>
 
 
-Ming-unify is an open-source multimodal framework featuring a newly designed unified visual generator and a native multimodal autoregressive model tailored for unifying vision and language. Specifically, this project provides an open-source implementation of the integrated MetaQueries and M2-omni framework, while introducing the novel **multi-scale learnable tokens** and **multi-scale representation alignment strategy**. By leveraging a fixed MLLM and a learnable diffusion model, Ming-unify enables native multimodal AR models to perform both text-to-image generation and instruction based image editing tasks, expanding their capabilities beyond pure visual understanding. Our experimental results showcase the strong performance of Ming-unify and illustrate the impressive fluid nature of its interactive process. Ming-unify is in alpha stage and will soon be further refined.
+Ming-Lite-Uni is an open-source multimodal framework featuring a newly designed unified visual generator and a native multimodal autoregressive model tailored for unifying vision and language. Specifically, this project provides an open-source implementation of the integrated MetaQueries and M2-omni framework, while introducing the novel **multi-scale learnable tokens** and **multi-scale representation alignment strategy**. By leveraging a fixed MLLM and a learnable diffusion model, Ming-Lite-Uni enables native multimodal AR models to perform both text-to-image generation and instruction based image editing tasks, expanding their capabilities beyond pure visual understanding. Our experimental results reveal the strong performance of Ming-Lite-Uni and illustrate the impressive fluid nature of its interactive process. Ming-Lite-Uni is in alpha stage and will soon be further refined.
 
 Thank you all for your continued interest and support! We truly appreciate your patience as we steadily advance our solutions and model performance. We're already making great progress and seeing promising results, and exciting updates will be coming soon—so stay tuned!
 
 ## &#x1F4CC; Updates
 * [2025.05.03] 🔥 Our [Technical Report](https://arxiv.org/abs/xxxx.xxxx) is in public on arxiv.
-* [2025.05.03] 🔥 We release the fisrt version of [Ming-unify](https://github.com/inclusionAI/Ming/Ming-unify).
+* [2025.05.03] 🔥 We release the fisrt version of [Ming-Lite-Uni](https://github.com/inclusionAI/Ming/Ming-Lite-Uni).
 
 
 
 
 ## Why It Matters
 
-Ming-unify's unified architecture overcomes fundamental limitations of conventional approaches:
+Ming-Lite-Uni's unified architecture overcomes fundamental limitations of conventional approaches:
 
-| Conventional Methods | Ming-unify's Advantages |
+| Conventional Methods | Ming-Lite-Uni's Advantages |
 |----------------------|------------------|
 | **Modular Pipelines**<br>(CLIP/SigLIP + Diffusion Models) | **End-to-End Unified Model**<br>Seamless understanding-generation integration |
 | **Discrete Token AR**<br>(Limited visual grounding) | **Continuous Token Space**<br>Native support for fine-grained visual concepts |
@@ -31,27 +31,27 @@ Ming-unify's unified architecture overcomes fundamental limitations of conventio
 
 ## Key Enhancements
 
-- **Unified Visual Understanding & Generation Architecture.** Ming-unify achieves an average understanding score of 69.7 on the OpenCompass leaderboard, surpassing DeepSeek-VL2 (66.4). At the same time, it achieves an image generation score of 0.62 on the GenEval benchmark, outperforming SDXL (0.55).
+- **Unified Visual Understanding & Generation Architecture.** Ming-Lite-Uni achieves an average understanding score of 69.7 on the OpenCompass leaderboard, surpassing DeepSeek-VL2 (66.4). At the same time, it achieves an image generation score of 0.62 on the GenEval benchmark, outperforming SDXL (0.55).
 - **Multi-Scale Learnable Tokens.** We employ a novel mechanism to establish feature correlations across resolutions of 4×/8×/16×. By introducing **hierarchical tokens**, the model captures global layout (low-res), object structures (mid-res), and fine textures (high-res), improving GenEval by 3.5%. 
 - **Multi-Scale Representation Alignment.** We introduce a novel **scale wised consistency loss** to enforce alignment between hierarchical representations and final outputs through native-resolution optimization. This strategy directly enhances the high-res reconstruction quality (>2dB PSNR) and boosts GenEval by 1.5%.
-- **Connector Module.** We facilitates dynamic alignment of features between frozen MLLM and trainable Diffusion models, achieves semantic alignment for text-to-pixel generation while also ensuring local-global coherence in edits.
 - **AGI-Capable System.** Our model supports complex chained operations, such as "generate castle → add sunset → adjust perspective", with a swift response time of under 1 second (benchmarked with RTX 4090). The system is designed to handle instruction-driven generation-editing and is synchronized with ChatGPT-4o(aligned with the industry milestone of March 2025).
 
 
 
-## Empowering Multimodal Interaction with Ming-unify
-**Ming-unify** acts as a unified model for multimodal understanding, extending beyond traditional NLP tasks and multimodal comprehension to enable interactive multimodal generation. This includes capabilities such as image generation, image editing, and style transfer.
 
-![Ming_unify_usecases](https://github.com/user-attachments/assets/125767e8-05b9-4f74-85fa-9fd682520ef1)
+## Empowering Multimodal Interaction with Ming-Lite-Uni
+**Ming-Lite-Uni** acts as a unified model for multimodal understanding, extending beyond traditional NLP tasks and multimodal comprehension to enable interactive multimodal generation. This includes capabilities such as image generation, image editing, and style transfer.
+
+![Ming_unify_usecases](figures/Ming_unify_usecases.png)
 
 
 ## Model Structure
-**Ming-unify** is a unified multimodal model designed for both image understanding and high-fidelity image generation. It achieves this by compressing image representations into continuous visual tokens, which are processed alongside discrete text tokens using a scaled auto-regressive Transformer. The generation capability is powered by an externally trained diffusion model (SANA), conditioned on tokens produced by the Transformer.
+**Ming-Lite-Uni** is a unified multimodal model designed for both image understanding and high-fidelity image generation. It achieves this by compressing image representations into continuous visual tokens, which are processed alongside discrete text tokens using a scaled auto-regressive Transformer. The generation capability is powered by an externally trained diffusion model (SANA), conditioned on tokens produced by the Transformer.
 
 <img width="1034" alt="B106FE9E-5839-48c3-A175-AE8A4D2D8BB8" src="https://github.com/user-attachments/assets/927e090e-7cda-4f32-81de-774466973077" />
 
 ## Benchmark Evaluations
-We conduct separate quantitative evaluations of Ming-unify on multimodal understanding and text-to-image generation using public benchmarks. For multimodal understanding, we compare against traditional models that take images and text as input and output text, as well as against recent models with visual generative capabilities. For multimodal generation, we evaluate text-to-image performance on GenEval. Please refer to our TechReport for details.
+We conduct separate quantitative evaluations of Ming-Lite-Uni on multimodal understanding and text-to-image generation using public benchmarks. For multimodal understanding, we compare against traditional models that take images and text as input and output text, as well as against recent models with visual generative capabilities. For multimodal generation, we evaluate text-to-image performance on GenEval. Please refer to our TechReport for details.
 
 **Multimodal Understanding**
 
@@ -64,12 +64,9 @@ We conduct separate quantitative evaluations of Ming-unify on multimodal underst
 |                   | DeepSeek-VL2                     | 66.4  | 81.2 | 61.0 | 50.7 | 59.4  | 51.5 | 84.5 | 60.0   |
 |                   | GPT-4o-20241120 (closed)         | 72.0  | 84.3 | 65.1 | 70.7 | 59.9  | 56.2 | 84.9 | 74.5   |
 |                   | Step-1o (closed)                 | 77.7  | 87.3 | 69.3 | 69.9 | 74.7  | 55.8 | 89.1 | 82.8   |
-| **Und. and Gen.** | DreamLLM                         | -     | -    | -    | -    | -     | -    | -    | 36.6   |
-|                   | MetaMorph                        | -     | 75.2 | -    | -    | -     | -    | -    | -      |
-|                   | Show-o-512                       | -     | -    | -    | 26.7 | -     | -    | -    | -      |
-|                   | TokenFlow-XL                     | -     | 68.9 | -    | 38.7 | -     | -    | -    | 40.7   |
+| **Und. and Gen.** | TokenFlow-XL                     | -     | 68.9 | -    | 38.7 | -     | -    | -    | 40.7   |
 |                   | Janus-Pro-7B                     | -     | 79.2 | -    | 41.0 | -     | -    | -    | 50.0   |
-|                   | **Ours (Ming-unify)**            | 69.7  | 80.7 | 60.5 | 51.2 | 68.3  | 51.8 | 84.5 | 72.3   |
+|                   | **Ours (Ming-Lite-Uni)**            | 69.7  | 80.7 | 60.5 | 51.2 | 68.3  | 51.8 | 84.5 | 72.3   |
 
 
 **Image Generation**
@@ -82,65 +79,51 @@ We conduct separate quantitative evaluations of Ming-unify on multimodal underst
 |                   | SDXL                              | 0.98        | 0.74     | 0.39     | 0.85   | 0.15     | 0.23         | 0.55    |
 |                   | DALL-E 3                          | 0.96        | 0.87     | 0.47     | 0.83   | 0.43     | 0.45         | 0.67    |
 |                   | SD3-Medium                        | 0.99        | 0.94     | 0.72     | 0.89   | 0.33     | 0.60         | 0.74    |
-| **Und. and Gen.** | Chameleon                         | -           | -        | -        | -      | -        | -            | 0.39    |
-|                   | Show-o                            | 0.95        | 0.52     | 0.49     | 0.82   | 0.11     | 0.28         | 0.53    |
+|**Und. and Gen.**  | Show-o                            | 0.95        | 0.52     | 0.49     | 0.82   | 0.11     | 0.28         | 0.53    |
 |                   | TokenFlow-XL                      | 0.95        | 0.60     | 0.41     | 0.81   | 0.16     | 0.24         | 0.55    |
 |                   | Janus-Pro-1B                      | 0.98        | 0.82     | 0.51     | 0.89   | 0.65     | 0.56         | 0.73    |
-|                   | MetaQueries                       | -           | -        | -        | -      | -        | -            | 0.61    |
-|                   | **Ours (Ming-unify)**             | 0.99        | 0.76     | 0.53     | 0.87   | 0.26     | 0.30         | 0.62    |
+|                   | **Ours (Ming-Lite-Uni)**             | 0.99        | 0.76     | 0.53     | 0.87   | 0.26     | 0.30         | 0.62    |
 
 ## Example Usage
 #### System Requirements
 - **Python:** >= 3.8
 - **PyTorch:** >= 2.4.1+cu12.2 (CUDA 12.2 compatible)
-
+- **flash-attn:** >= 2.6.3
 #### Installation
 
-To set up the environment, use pip to install the following dependencies:
+We recommend installing the following versions to set up your environment using pip:
 
-```bash
-pip install torch==2.4.1
-torchvision==0.16.2
-torchaudio==2.4.0
-tensorflow==2.13.1
-numpy==1.24.4
-pandas==2.0.1
-scipy==1.10.1
-scikit-learn==1.3.2
-h5py==3.10.0
-transformers==4.46.3
-diffusers==0.33.0
-datasets==2.15.0
-sentence-transformers==3.2.1
-tokenizers==0.20.3
-safetensors==0.4.1
-accelerate==0.33.0
-deepspeed==0.16.0
-bitsandbytes==0.39.0
-flash-attn==2.6.3
-peft==0.12.0
+```
+pip install -r requirements.txt
 ```
 
 - ### Usage Guided
 Below is an example of how to load and use the model:
 ```python
-from transformers import AutoModel, AutoTokenizer
+import torch
+import os
+from Ming_Uni.MingUniInference import Ming_Uni_Inference
+from Ming_Uni.process import MyProcessor
+device = torch.cuda.current_device()
+device = torch.device(device)
 
-Load the model and tokenizer
-model_name = "your-username/your-model-name"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModel.from_pretrained(model_name)
+model_path='Ming_Uni/model/path'
+model = Ming_Uni_Inference(model_path)
+model.to(torch.bfloat16)
+model.to(device)
+model.eval()
 
-Example input
-image_file = None
-prompt = "Produce image: a smiling man with dark hair sits on a wooden bench wearing a black shirt, khaki pants, and a black belt he accessorizes with a silver and white watch"
-generate_prefix = "Production done: <image>" 
+glm_model=os.path.join(model_path, 'qwen2_5_llm')
+my_proc=MyProcessor(glm_model)
 
-Process outputs
-print(outputs)
+image_file = "tests/cake.jpg"
+prompt = "add a candle on top of the cake"
+inputs = my_proc.process(image_file=image_file, prompt=prompt, device=device)
+
+result = model.image_gen_generate(inputs, steps=30, seed=42, cfg=5.0, height=512, width=512)[1]
+result.save("result.png")
 ```
 For more advanced usage, such as fine-tuning or generating images, refer to the documentation.
-
 
 
 
@@ -149,7 +132,7 @@ For more advanced usage, such as fine-tuning or generating images, refer to the 
 The project is currently in its early stages. While some preliminary results have been promising, substantial progress is needed to achieve seamless integration of understanding and generation. Both the code and models require further refinement and optimization, which is why we have chosen to open-source the project. We invite contributions from the community to help enhance and develop it collaboratively. If you have any suggestions or identify issues within the code, please contribute via Pull Requests. Thank you for your support and interest!
 
 ## Open Collaboration
-We're open-sourcing Ming-unify to accelerate progress toward AGI, featuring:
+We're open-sourcing Ming-Lite-Uni to accelerate progress toward AGI, featuring:
 - 📂 Full model weights & test code  
 - 🧩 Modular architecture for easy extension  
 - 📊 Comprehensive benchmarks (vs GPT-4V, SDXL, etc.)
@@ -170,9 +153,9 @@ If you find our work helpful, feel free to give us a cite.
 
 ```bibtex
 @article{Mingunify2025,
-    title   = {Ming-unify: Advancements in Unified Architecture for Natural Multimodal Interaction}, 
+    title   = {Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction}, 
     author  = {Inclusion AI, Ant Group},
-    journal = {arXiv preprint arXiv:},
+    journal = {arXiv preprint},
     year    = {2025}
 }
 ```
